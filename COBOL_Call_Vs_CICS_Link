@@ -1,0 +1,14 @@
+Cobol CALL Vs CICS LINK
+ 
+The following text has been taken from the site: http://www.lemon-tree.co.uk/cics/Articles/cobcall.htm.
+There has always been a running debate over whether COBOL programs should use EXEC CICS LINK or the COBOL CALL statement. Here are a few considerations on the subject:
+A CALLed program will remain in it's last state after it has been CALLed and therefore a second CALL to that program will find the CALLed program in that state. When using the LINK command the program is always in it's initial state.
+A CALLed program uses GOBACK to return to it's caller rather than EXEC CICS RETURN - this does not create a CICS trace entry
+and can make debugging more difficult.
+A CALLed program will show in the CICS Trace when called but only by the LOCATE for it, there are no EXEC CICS LINK trace entries.
+CEDF/CEDX does not show an EXEC CICS LINK screen to highlight the program change - this makes debugging more difficult.
+The program 'logical level' does not change when using CALL.
+A CALLed program can not be remote - i.e. it can not be DPLed to.
+In a non-LE environment COBOL CALL can only CALL other COBOL or ASSEMBLER programs simply. If a CALL to a C program is needed the C 'environment' has to be established by the CALLing COBOL program first.
+A CALLed program does have a Program definition (PPTTE) and shows up in CEMT and Statistics just like a 'normal' EXEC CICS LINK'd to program.
+A COBOL CALL is much faster and uses less storage (CALL data-area) but only if the program is called more than twice!
