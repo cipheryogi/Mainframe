@@ -1,0 +1,39 @@
+HIGH-VALUES and LOW-VALUES
+ 
+There are occasions when you may wish to set a variable to an infinitely high or infinitely low number. For example, suppose you were merging two files on surnames as the primary key:
+*in data division FILE SECTION
+ FD FILE-1.
+ 01 RECORD-1.
+     03 IN-NAME-1 PIC X(20).
+     03 FILLER    PIC X(50).
+ FD MERGE-FILE.
+ 01 RECORD-OUT    PIC X(70).
+   :
+   :
+   PERFORM WITH TEST AFTER EOF-FLAG-1 AND EOF-FLAG-2
+*loop until each file has been read to completion
+*read each file
+      READ FILE-1
+          AT END SET EOF-FLAG-1 TO TRUE
+          MOVE HIGH-VALUES TO IN-NAME-1
+      END-READ
+      READ FILE-2
+          AT END SET EOF-FLAG-2 TO TRUE
+          MOVE HIGH-VALUES TO IN-NAME-2
+      END-READ
+*sort the records (assuming no 2 names are the same)
+*on ascending surname
+      IF IN-NAME-1 IS < IN-NAME-2 THEN
+          WRITE RECORD-OUT FROM RECORD-1
+      ELSE
+          WRITE RECORD-OUT FROM RECORD-2
+      END-IF
+   END-PERFORM
+In this example, when IN-NAME-1 is less than IN-NAME-2 (based on their ASCII values e.g. A < B etc..) then
+the FILE-1 record (RECORD-1) is written to the merge file (RECORD-OUT). One of FILE-1 and FILE-2 will come
+to an end before the other so the completed file has its IN-NAME-_ value set to constant that will ALWAYS
+be greater than the IN-NAME-_ value still being read, ensuring all remain files are written to the merge
+file. This is done with the lines: MOVE HIGH-VALUES TO IN-NAME-1 and MOVE HIGH-VALUES TO IN-NAME-2
+It is important to note that HIGH-VALUES and LOW-VALUES are ALPHANUMERIC in type, so you can't set
+numerically defined variables to this type (you would have to implicitly redefine the variable first). This is an annoying quirk of COBOL.
+Back to index page
