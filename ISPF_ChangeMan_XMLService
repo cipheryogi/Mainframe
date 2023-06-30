@@ -1,0 +1,97 @@
+Setting up XMLSERV - Serena-ChangeMan XML services
+Serena-ChangeMan XML services
+SETTING UP XMLSERV
+ 
+Note: - This is meant only for Serena-ChangeMan administrators and not for ChangeMan users
+ 
+If XML services are installed along with ChangeMan you should be able to find a REXX member named XMLSERV in the CLIST or REXX library e.g. TEST.CHGMAN.V560.SYST.CLIST
+ 
+The member contains following code which needs to be customized for your system environment in order to start using the online XML services (XMLSERV panel)
+ 
+/* REXX XMLSERV */
+  /*                                                                 */
+  /* Customize the following for your site prior to use:             */
+  /*   mapds:     XML mapdata dataset name.                          */
+  /*   serparm:   ChangeMan STC ser#parm dataset name.               */
+  /*   xmlinds:   User XML input dataset name in TSO dsn format.     */
+  /*   xmloutds:  User XML output dataset name in TSO dsn format.    */
+  /*   subsys:    Default ChangeMan subsystem id.                    */
+  /*   sysout:    Sysout class                                       */
+  /*   somnode:   Product library high level qualifier.              */
+  /*                                                                 */
+  address ispexec
+  "control errors return"
+  parse arg args
+ 
+  mapds    = "'somnode.SERCOMC.MAPDATA'"
+  serparm  = "'somnode.SERCOMC.TCPIPORT'"
+  xmlinds  = "XMLIN"
+  xmloutds = "XMLOUT"
+  subsys   = " "
+  sysout   = "H"
+ 
+  xamver   = " "
+  xmlver   = "1.0"
+  product  = "CMN"
+  test     = " "
+ 
+  address ispexec "VPUT (MAPDS XMLINDS XMLOUTDS XAMVER SERPARM) SHARED"
+  address ispexec "VPUT (PRODUCT SUBSYS TEST XMLVER ARGS) SHARED"
+ 
+  address tso "altlib act appl(exec) ds(",
+    "'somnode.SERCOMC.CLIST'",
+    "'somnode.SERCOMC.CEXEC'",
+    ")"
+  "libdef ispllib dataset id(",
+    "'somnode.CMNZMF.LOAD'",
+    "'somnode.SERCOMC.LOAD'",
+    ") stack"
+  "libdef ispmlib dataset id(",
+    "'somnode.CMNZMF.MESSAGES'",
+    ") stack"
+  "libdef ispplib dataset id(",
+    "'somnode.CMNZMF.PANELS'",
+    "'somnode.SERCOMC.PANELS'",
+    ") stack"
+  "libdef ispslib dataset id(",
+    "'somnode.CMNZMF.SKELS'",
+    "'somnode.SERCOMC.SKELS'",
+    ") stack"
+  address tso "alloc f(xmlprint) sysout("sysout") hold reu"
+ 
+  "select cmd(SERXMLS)"
+ 
+  address tso "free f(xmlprint)"
+  "libdef ispllib"
+  "libdef ispmlib"
+  "libdef ispplib"
+  "libdef ispslib"
+  address tso "altlib deact appl(exec)"
+ 
+  return 0
+ 
+Following are the details on how to update this REXX code
+ 
+In the MAPDS give the dataset name which ends with .MAPDATA. Search for your installation libraries. Meaning the libraries where you copied the vendor code (Serena provided code).
+ 
+SERPARM should contain the TCPIP dataset. This last node for this dataset is usually TCPIPORT.
+ 
+XMLINDS & XMLOUTDS can simply have "XMLIN" & "XMLOUT" respectively.
+ 
+Put the single byte subsystem ID in the SUBSYS variable.
+ 
+Leave SYSOUT, xamver, xmlver & test with default values
+ 
+In the altlib, provide the CLIST library where XMLSERV member is residing. Concatenate CEXEC library with this
+ 
+In the ispllib provide all the load libraries where you copied the vendor load modules. Also concatenate the SERCOM.LINKLIB & SERCOM.LIKLIBC
+ 
+In the Ispmlib, provide all the libraries where you copied the vendor messages. Generally this should have node ISPMLIB.
+ 
+In the ispplib, provide the SERCOM (vendor) panel library and concatenate the libraries where you copied any SERCOM panels. This is important. Usually the vendor library would have nodes SERCOM.ISPSLIB
+ 
+Ispslib – Same as ispplib –important
+ 
+No change required for rest of the REXX code.
+ 
+Finally execute the XMLSERV by using line command EX or TSO command line – TSO EXEC ‘<PDS>(XMLSERV)’
