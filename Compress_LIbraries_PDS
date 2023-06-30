@@ -1,0 +1,19 @@
+How to Compress the libraries/PDS which are being used by CICS regions
+Compress Job
+***************************** Top of Data ******************************
+//JOBNAME  JOB (XXXX),'COMPRESS DATASET',                                 
+//    MSGCLASS=X,CLASS=X,NOTIFY=&SYSUID                                
+//**************************************                               
+//COPYSTEP EXEC PGM=IEBCOPY,PARM='SIZE=9999K'                          
+//SYSPRINT DD   SYSOUT=T                                               
+//DISK1   DD   DSN=Library Name,                             
+//             DISP=SHR                                                
+//SYSUT3   DD  UNIT=SYSDA,SPACE=(CYL,(5,1))                            
+//SYSUT4   DD  UNIT=SYSDA,SPACE=(CYL,(5,1))                            
+//NFDRCOPY DD DUMMY                                                    
+//SYSIN    DD   *                                                      
+  C O=DISK1,I=((DISK1,R))                                              
+/*                                                                     
+//                                                                     
+**************************** Bottom of Data ****************************
+Back to Index Page
