@@ -1,0 +1,49 @@
+***************************** Top of Data ******************************
+
+//VNDJ29S   JOB (DIELD),'REPORT JOB',                                  
+
+//	MSGCLASS=T,CLASS=S,NOTIFY=&SYSUID                                
+
+//*                                                                    
+
+//*--------------------------------------------------------------------*
+
+//* THIS JOB COMPARES GENRATES A REPORT ON THE LOAD MODULE PROVIDED IN *
+
+//* THE INPUT (LOADLIB) PDS.                                       	*
+
+//*--------------------------------------------------------------------*
+
+//STEP010  EXEC PGM=AMBLIST                                            
+
+//DD1  	DD DISP=SHR,DSN=VNDJ29.LOADLIB                              
+
+//SYSPRINT DD DISP=(NEW,CATLG,DELETE),UNIT=SYSDA,                      
+
+//        	SPACE=(CYL,(5,5),RLSE),                                  
+
+//        	DCB=(DSORG=PS,RECFM=FBA,LRECL=121,BLKSIZE=32670),        
+
+//        	DSN=VNDJ29.COBOL.REPORT                                  
+
+//SYSIN	DD *                                                        
+
+  LISTIDR OUTPUT=ALL,DDN=DD1                                           
+
+//*--------------------------------------------------------------------*
+
+**************************** Bottom of Data ****************************
+
+AMBLIST                                                                                                                                              
+
+The system's pasta maker. . .  take a lump of dough, send it through AMBLIST, and you come out with beautiful spaghetti!
+
+AMBLIST provides the following problem data:                               
+
+Formatted listing of an object module                                  
+
+Map of the control sections (CSECTs) in a load module or program object
+
+List of modifications to the code in a CSECT Map of all modules in the link pack areas (LPA)                       
+
+Map of the contents of the DAT-on nucleus The map no longer represents the IPL version and message AMB129I will be issued.    
