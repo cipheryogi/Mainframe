@@ -1,0 +1,24 @@
+Quick fix for S0C7 Abends
+ 
+Here’s the JCL to remove offending data from any file quickly. (Referenced from 100 cool mainframe tips)
+ 000001 //VNDJ29Y JOB (D0B9D,DEV),'VNDJ29',CLASS=A,
+000002 //         MSGCLASS=T,NOTIFY=&SYSUID,TIME=(,20)
+000003 //STEP01 EXEC PGM=FILEAID
+000004 //*
+000005 //SYSUDUMP DD SYSOUT=*
+000006 //SYSPRINT DD SYSOUT=*
+000007 //SYSLIST  DD SYSOUT=*
+000008 //SYSTOTAL DD SYSOUT=*
+000009 //DD01     DD DSN=VNDJ29.FLATFILE,DISP=SHR
+000010 //DD01O    DD DSN=VNDJ29.FLATFILE.NEW,
+000011 //            DISP=(NEW,CATLG,DELETE),
+000012 //            SPACE=(TRK,(10,10),RLSE),DCB=(VNDJ29.FLATFILE)
+000013 //SYSIN DD *
+000014 $$DD01 DROP IF=(1,5,NEP)
+000015 /*
+000016 //
+000017 //**$$DD01 DROP IF=(1,5,EQP)  è EQP – Equal to Pack
+000018 //**$$DD01 DROP IF=(1,5,NEP)  è NEP – Not equal to Pack
+000019 //**$$DD01 DROP IF=(46,9,EQN) è EQN - Equal to Numeric
+000020 //**$$DD01 DROP IF=(46,9,NEN) è NEN – Not Equal to Numeric
+ Refer to following book in Book manager to learn more on FILEAID BATCH:- 
