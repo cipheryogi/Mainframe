@@ -1,0 +1,15 @@
+TSO Command c all p'=' '' 35 80
+ 
+TSO Command c all p'=' '' 35 80
+TSO COMMAND
+c all p'=' '' 35 80
+Suppose a file has following contents:-
+B0BP030B               01.01 05/07/22 03:59    25    25     0 VNDJ29
+D0AZU520               01.60 06/02/01 02:57    57   160     0 VNDJ29
+D0AZU530               01.54 06/02/01 02:58    58   160     0 VNDJ29
+D0AZU540               01.56 06/02/01 02:58    54   212     0 VNDJ29
+D0AZU550               01.51 06/02/01 02:57    61   180     0 VNDJ29
+D0AZU560               01.61 06/02/01 02:57    69   212     0 VNDJ29
+D0AZU720               01.21 06/01/30 02:04    90    88     1 VNDJ29
+Now we want to remove all the data except the job names which are ending at 8th column. Then use the command C ALL P'=' 8 80
+Back To Index Page
