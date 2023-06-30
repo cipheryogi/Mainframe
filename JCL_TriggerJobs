@@ -1,0 +1,42 @@
+INTRDR – Submitting another job from one job
+ 
+INTRDR – Submitting another job from one job
+ 
+First job –  
+****** ********************* Top of Data ******************************
+000001 //VNDJ29G JOB (D0B9D,DEV),'VNDJ29 SAC',
+000002 //          MSGCLASS=T,
+000003 //          CLASS=S,
+000004 //          NOTIFY=&SYSUID
+000005 //*********************************************************************
+000006 //* AUTHOR       : YOGESH SHINDE
+000012 //STEP1    EXEC PGM=IEFBR14
+000013 //SYSPRINT DD SYSOUT=*
+000014 //DD1      DD DSN=VNDJ29.SAC.PS1,
+000015 //            DISP=MOD,RECFM=FB,LRECL=5000,
+000016 //            UNIT=SYSDA,SPACE=(TRK,(2,2)),BLKSIZE=50000
+000017 //STEP2    EXEC PGM=IEBGENER,COND=(0,NE)
+000018 //SYSIN    DD DUMMY
+000019 //SYSUT1   DD DSN=VNDJ29.JCL(JCL2),
+000020 //            DISP=SHR
+000021 //SYSUT2   DD SYSOUT=(*,INTRDR)
+000022 //SYSPRINT DD SYSOUT=*
+****** ******************* Bottom of Data ****************************
+ 
+Triggered Job –
+ 
+****** ********************* Top of Data ******************************
+000001 //JCL2    JOB (D0B9D,DEV),'VNDJ29 SAC',
+000002 //          MSGCLASS=T,
+000003 //          CLASS=S,
+000004 //          NOTIFY=&SYSUID
+000005 //**************************************************************
+000006 //* AUTHOR       : YOGESH SHINDE
+000011 //**************************************************************
+000012 //STEP1    EXEC PGM=IEFBR14
+000013 //SYSPRINT   DD SYSOUT=*
+000014 //DD1     DD DSN=VNDJ29.SAC.PS2,DISP=MOD,RECFM=FB,LRECL=50,
+000015 //        UNIT=SYSDA,SPACE=(TRK,(2,2)),BLKSIZE=500
+000016 //*
+****** ****************** Bottom of Data ****************************
+Back to Index page
