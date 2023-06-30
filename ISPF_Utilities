@@ -1,0 +1,28 @@
+ISPF Utilities
+ 
+Using ISPF Utilities< xml="true" ns="urn:schemas-microsoft-com:office:office" prefix="o" namespace="">
+The ISPF compare utility can be used to compare files line by line in batch. Here is an example using control cards to specify which columns are to be compared:
+ 
+//COMPARE   EXEC PGM=ISRSUPC,
+//          PARM='DELTAL,LINECMP'
+//* invoke ISPF compare to check the results
+//* don't compare columns 15-34 which can vary
+//NEWDD   DD  DISP=SHR,DSN=one.file
+//OLDDD   DD  DISP=SHR,DSN=another.file
+//OUTDD  DD SYSOUT=*
+//SYSIN   DD *
+ CMPCOLM 1:14,35:80
+//
+The example above produces a list of lines that differ and a summary of results. Return code 0 is set if the files are the same; return code 1 means that differences were found.
+The ISPF search-for utility can be used in batch to search for a specified string. Here is an example that searches all members of a partitioned dataset for the string 'DD DUMMY' in upper or lower case in columns 5 to 72:
+//SEARCH  EXEC PGM=ISRSUPC,
+//            PARM='SRCHCMP,ANYC'
+//NEWDD  DD DISP=SHR,DSN=input.pds
+//OUTDD  DD SYSOUT=*
+//SYSIN  DD *
+CMPCOLM 5:72
+SRCHFOR  'DD DUMMY'
+The return code will be set to 1 if the string is found or 0 if it isn't.
+Note that the same program name is used for both compare and search-for. The parm controls which function is being used.
+ 
+Back to Index page
