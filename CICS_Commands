@@ -1,0 +1,1637 @@
+CICS commands
+ 
+The following is a list of the common CICS commands and their COBOL syntax. If you are using PL/1 then just substitute ; for END-EXEC.
+[ ] indicate optional parameters, [ | ] indicates a choice of one of the options listed (or none), { | } indicates you must specify one of the options.
+
+<table xmlns="http://www.w3.org/1999/xhtml" style="BORDER-RIGHT:windowtext 1pt solid;BORDER-TOP:windowtext 1pt solid;BORDER-LEFT:windowtext 1pt solid;BORDER-BOTTOM:windowtext 1pt solid" cellspacing="5" cellpadding="0" border="1" data-table-local-id="table-1">
+  <tbody>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">abend</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              force the current task to terminate abnormally
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS ABEND [ABCODE(name)] [CANCEL] [NODUMP] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">address</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              lets you access system information maintained in storage outside your program
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS ADDRESS [ACEE(pointer-ref)] [COMMAREA(pointer-ref)] [CSA(pointer-ref)] [CWA(pointer-ref)] [EIB(pointer-ref)] [TCTUA(pointer-ref)] [TWA(pointer-ref)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">allocate</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              establishes a distributed processing session with another system
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS ALLOCATE SYSID(name) [PROFILE(name)] [NOQUEUE | NOSUSPEND] [STATE(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">asktime</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              obtain current time and date
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS ASKTIME [ABSTIME(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">assign</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              obtain information from various system control areas
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS ASSIGN option(data-area) END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">bif deedit</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              formats alphanumeric data into numeric data
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS BIF DEEDIT FIELD(data-area) [LENGTH(data-value)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">build attach</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              creates an ATTACH FMH used to initiate a background transaction with LU6.1 or MRO
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS BUILD ATTACH ATTACHID(name) [PROCESS(name)] [RESOURCE(name)] [RPROCESS(name)] [RRESOURCE(name)] [QUEUE(name)] [IUTYPE(data-value)] [DATASTR(data-value)] [RECFM(data-value)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">cancel</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              cancels the effect of a DELAY, POST, or START command
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS CANCEL [REQID(name)] [TRANSID(name)] [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">change task</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              changes the priority of the current task
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS CHANGE TASK PRIORITY(data-value) END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">connect process</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              initiates an application program on a remote system once a session has been ALLOCATEd
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS CONNECT PROCESS {CONV(name) | SESSION(name) } PROCNAME(data-area) PROCLENGTH(data-area) SYNCLEVEL(data-area) [PIPLIST(data-area) PIPLENGTH(data-value)] [STATE(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">converse</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              send data to a remote process and receive a response
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS CONVERSE [CONVID(name) | SESSION(name)] [ATTACHID(name)] FROM(data-area) { FROMLENGTH(data-area) | FROMFLENGTH(data-area) } { INTO(data-area) | SET(pointer-ref) } {TOLENGTH(data-area) | TOFLENGTH(data-area) } [MAXLENGTH(data-value) | MAXFLENGTH(data-value)] [NOTRUNCATE] [STATE(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">delay</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              suspend a task
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS DELAY [INTERVAL(hhmmss) | TIME(hhmmss) | FOR [HOURS(hh)] [MINUTES(mm)] [SECONDS(ss)] | UNTIL [HOURS(hh)] [MINUTES(mm)] [SECONDS(ss)]] [REQID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">delete</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              remove a record from a file
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS DELETE { DATASET(name) | FILE(name) } [RIDFLD(data-area) [KEYLENGTH(data-value) [GENERIC [NUMREC(data-area)]]]] [RBA | RRN] [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">deleteq td</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              remove a record from a transient data queue
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS DELETEQ TD QUEUE(name) [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">deleteq ts</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              remove a record from a temporary storage queue
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS DELETEQ TS QUEUE(name) [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">deq</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              release a user defined resource
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS DEQ RESOURCE(data-area) [LENGTH(data-value)] [LUW | TASK | MAXLIFETIME(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">dump</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              force a storage dump
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS DUMP [TRANSACTION] DUMPCODE(name) [FROM(data-area) [LENGTH(data-value) | FLENGTH(data-value)]] [SEGMENTLIST(data-area) LENGTHLIST(data-area) NUMSEGMENTS(data-area)] [COMPLETE] [TRT] [TASK] [STORAGE] [PROGRAM] [TERMINAL] [TABLES] [DCT] [FCT] [PCT] [PPT] [SIT] [TCT] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">endbr</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              terminate a browse operation
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS ENDBR { DATASET(name) | FILE(name) } REQID(data-value) [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">enq</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              reserve a user defined resource
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS ENQ RESOURCE(data-area) [LENGTH(data-value)] [NOSUSPEND] [LUW | TASK | MAXLIFETIME(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">enter</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              write a user trace entry into the CICS trace table
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS ENTER {TRACENUM(data-value) | TRACEID(data-value) } [FROM(data-area) [FROMLENGTH(data-area)]] [RESOURE(data-area)] [EXCEPTION] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">extract attach</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              retrieve values from an ATTACH FMH
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS EXTRACT ATTACH [ATTACHID(name) | CONVID(name) | SESSION(name)] [PROCESS(name)] [RESOURCE(name)] [RPROCESS(name)] [RRESOURCE(name)] [QUEUE(name)] [IUTYPE(data-value)] [DATASTR(data-value)] [RECFM(data-value)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">extract attributes</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              determine the current state of an MRO or APPC conversation
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS EXTRACT ATTRIBUTES [CONVID(name) | SESSION(name)] [STATE(data-value)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">extract process</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              used in a back end program to obtain information passed via the CONNECT PROCESS command in the front end program
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS EXTRACT PROCESS [CONVID(name) | SESSION(name)] [PROCNAME(data-value)PROCLENGTH(data-area) [MAXPROCLEN(data-value)]] [SYNCLEVEL(data-area)] [PIPLIST(data-area) PIPLENGTH(data-value)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">formattime</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              convert time to required format
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS FORMATTIME ABSTIME(data-value) [YYDDD(data-area)] [YYMMDD(data-area)] [YYDDMM(data-area)] [DDMMYY(data-area)] [MMDDYY(data-area)] [DATE(data-area) [DATEFORM(data-area)]] [DATESEP[(data-value)]] [DAYCOUNT(data-area)] [DAYOFWEEK(data-area)] [DAYOFMONTH(data-area)] [MONTHOFYEAR(data-area)] [YEAR(data-area)] [TIME(data-area) [TIMESEP[(data-value)]]] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">free</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              release a distributed processing session
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS FREE [CONVID(name) | SESSION(name)] [STATE(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">freemain</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              release virtual storage
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS FREEMAIN { DATA(data-area) | DATAPOINTER(pointer-ref) } END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">getmain</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              aquire virtual storage
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS GETMAIN SET(pointer-ref) { LENGTH(data-value) | FLENGTH(data-value) [BELOW] } [INITIMG(data-value)] [NOSUSPEND] [SHARED] {USERKEY | CICSKEY] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">handle abend</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              establish abend exits
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS HANDLE ABEND { PROGRAM(name) | LABEL(label) | CANCEL | RESET } END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">handle aid</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              establish routines to be invoked when AID keys (enter, pf and pa keys) are detected by a receive map
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS HANDLE AID option [(label)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">handle condition</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              specifies how certain exception conditions should be processed
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS HANDLE CONDITION condition-name [(label)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">ignore condition</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              specifies that certain exception conditions should be ignored
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS IGNORE CONDITION condition-name ... END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">link</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              invoke a program, return to the next statement after completion
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS LINK PROGRAM(name) [COMMAREA(data-area) [LENGTH(data-value)] [DATALENGTH(data-value)]] [INPUTMSG(data-area) [INPUTMSGLEN(data-value)]] [SYSID(name)] [SYNCONRETURN] [TRANSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">load</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              retrieve and load an object module and return its length and address
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS LOAD PROGRAM(name) [SET(pointer-ref)] [LENGTH(data-area) | FLENGTH(data-area)] [ENTRY(pointer-ref)] [HOLD] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">pop handle</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              restores handle abend, aid, and conditions temporarily suspended by push handle
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS POP HANDLE END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">post</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              create a Timer Event Control Area
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS POST [INTERVAL(hhmmss) | TIME(hhmmss) | AFTER [HOURS(hh)] [MINUTES(mm)] [SECONDS(ss)] | AT [HOURS(hh)] [MINUTES(mm)] [SECONDS(ss)]] SET(pointer-ref) [REQID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">purge message</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              delete a logical message before the task terminates
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS PURGE MESSAGE END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">push handle</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              temporarily suspend handle abend, aid, and conditions
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS PUSH HANDLE END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">read</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              read a record from a file
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS READ { DATASET(name) | FILE(name) } { INTO(data-area) | SET(pointer-ref) } [LENGTH(data-area)] RIDFLD(data-area) [KEYLENGTH(data-area) [GENERIC]] [SYSID(name)] [RBA | RRN] [GTEQ | EQUAL] [UPDATE] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">readnext</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              read the next sequential record from a file
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS READNEXT { DATASET(name) | FILE(name) } { INTO(data-area) | SET(pointer-ref) } [LENGTH(data-area)] RIDFLD(data-area) [KEYLENGTH(data-area)] [SYSID(name)] [RBA | RRN] [REQID(data-value)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">readprev</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              read the previous sequential record from a file
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS READPREV { DATASET(name) | FILE(name) } { INTO(data-area) | SET(pointer-ref) } [LENGTH(data-area)] RIDFLD(data-area) [KEYLENGTH(data-area)] [SYSID(name)] [RBA | RRN] [REQID(data-value)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">readq td</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              read a record from a transient data queue
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS READQ TD QUEUE(name) { INTO(data-area) | SET(pointer-ref) } [LENGTH(data-area)] [SYSID(name)] [NOSUSPEND] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">readq ts</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              read a record from a temporary storage queue
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS READQ TS QUEUE(name) { INTO(data-area) | SET(pointer-ref) } [LENGTH(data-area)] [NUMITEMS(data-area)] [ITEM(data-value) | NEXT] [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">receive (distributed)</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              receive data sent by a remote process
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS RECEIVE [CONVID(name) | SESSION(name)] { INTO(data-area) | SET(pointer-ref) } { LENGTH(data-area) | FLENGTH(data-area) } [MAXLENGTH(data-value) | MAXFLENGTH(data-value)] [NOTRUNCATE] [STATE(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">receive (terminal)</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              retrieve input data from a terminal
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS RECEIVE { INTO(data-area) | SET(pointer-ref) } { LENGTH(data-area) | FLENGTH(data-area) } [MAXLENGTH(data-value) | MAXFLENGTH(data-value)] [NOTRUNCATE] [ASIS] [BUFFER] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">receive map</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              receive data from a terminal via BMS
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS RECEIVE MAP(name) [MAPSET(name)] [INTO(data-area) | SET(pointer-ref)] [ASIS] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">release</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              free virtual storage acquired via a load command
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS RELEASE PROGRAM(name) END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">resetbr</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              re-establish position for a browse
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS RESETBR { DATASET(name) | FILE(name) } RIDFLD(data-area) [KEYLENGTH(data-value) [GENERIC]] [RBA | RRN] [GTEQ | EQUAL] [REQID(data-value)] [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">retrieve</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              retrieves data passed to another program via the start command
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS RETRIEVE [INTO(data-area) | SET(pointer-ref)] [LENGTH(data-area)] [RTRANSID(data-area)] [RTERMID(data-area)] [QUEUE(data-area)] [WAIT] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">return</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              return to the invoking program
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS RETURN [TRANSID(name) [COMMAREA(data-area) LENGTH(data-value)]] [IMMEDIATE]] [INPUTMSG(data-area) [INPUTMSGLEN(data-value)]] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">rewrite</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              updates a record in a file
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS REWRITE { DATASET(name) | FILE(name) } FROM(data-area) [LENGTH(data-area)] [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">route</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              allows BMS messages to be routed to multiple terminals
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS ROUTE [LIST(data-area)] [OPCLASS(data-area)] [INTERVAL(hhmmss) | AFTER [HOURS(hh)] [MINUTES(mm)] [SECONDS(ss)] | AT [HOURS(hh)] [MINUTES(mm)] [SECONDS(ss)]] [ERRTERM{(name)]] [TITLE(data-area)] [REQID(name)] [NLEOM] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">send (distributed)</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              send data to a remote process
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SEND [CONVID(name) | SESSION(name)] [ATTACHID(name)] [FROM(data-area) [LENGTH(data-area) | FLENGTH(data-area)]] [INVITE | LAST] [CONFIRM | WAIT] [STATE(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">send (terminal)</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              send data to a terminal
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SEND FROM(data-area) [LENGTH(data-area) | FLENGTH(data-area)] [DEST(name)] [WAIT] [INVITE | LAST] [DEFRESP] [STRFIELD] [ERASE] [CTLCHAR(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">send control</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              send device control instructions to a terminal
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SEND CONTROL [ERASEAUP | ERASE] [ALARM] [FREEKB] [FRSET] [CURSOR(data-value)] [PRINT] [FORMFEED] [ACCUM] [PAGING | TERMINAL [WAIT] [LAST]] [L40 | L64 | L80 | HONEOM] [REQID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">send map</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              send data to a terminal via BMS
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SEND MAP(name) [MAPSET(name)] [FROM(data-area)] [LENGTH(data-value)] [DATAONLY | MAPONLY] [ERASEAUP | ERASE] [ALARM] [FREEKB] [FRSET] [CURSOR(data-value)] [PRINT] [FORMFEED] [NLEOM] [ACCUM] [PAGING | TERMINAL [WAIT]] [LAST] [L40 | L64 | L80 | HONEOM] [REQID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">send page</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              write the last page of a BMS message to temporary storage
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SEND PAGE [RELEASE [TRANSID(name)] | RETAIN] [AUTOPAGE | NOAUTOPAGE] [OPERPURGE] [TRAILER(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">send text</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              send data to a terminal letting BMS automatically format the data
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SEND TEXT FROM(data-area) [LENGTH(data-value)] [ERASE] [ALARM] [FREEKB] [CURSOR(data-value)] [PRINT] [FORMFEED] [NLEOM] [ACCUM] [PAGING | TERMINAL [WAIT]] [LAST] [HEADER(data-area)] [TRAILER(data-area)] [JUSTIFY(datavalue) | JUSFIRST | JUSLAST] [L40 | L64 | L80 | HONEOM] [REQID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">send text noedit</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              send data to a terminal similar to terminal control but can direct to temporary storage using paging option
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SEND TEXT NOEDIT FROM(data-area) [LENGTH(data-value)] [ERASE] [ALARM] [FREEKB] [PRINT] [PAGING | TERMINAL [WAIT] [LAST]] [L40 | L64 | L80 | HONEOM] [REQID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">signoff</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              signs the user off cics
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SIGNOFF END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">signon</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              signs the user on to cics
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SIGNON USERID(datavalue) [PASSWORD(data-value)] [NEWPASSWORD(data-value)] [OIDCARD(data-value)] [NATLANG(data-value)] [natlanginuse(data-area)] [ESMRESP(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">start</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              initiate another task after or at a specified time
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS START TRANSID(name) [INTERVAL(hhmmss) | TIME(hhmmss) | AFTER [HOURS(hh)] [MINUTES(mm)] [SECONDS(ss)] | AT [HOURS(hh)] [MINUTES(mm)] [SECONDS(ss)]] [TERMID(name)] [SYSID(name)] [REQID(name)] [FROM(data-area) [LENGTH(data-value)]] [RTRANSID(name)] [RTERMID(name)] [QUEUE(name)] [NOCHECK] [PROTECT] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">startbr</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              initiate a browse
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS STARTBR { DATASET(name) | FILE(name) } RIDFLD(data-area) [KEYLENGTH(data-area) [GENERIC]] [SYSID(name)] [RBA | RRN] [GTEQ | EQUAL] [REQID(data-value)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">suspend</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              temporarily return control to cics
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SUSPEND END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">syncpoint</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              rollback or make permanent updates applied to protected resources
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS SYNCPOINT [ROLLBACK] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">unlock</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              release a record held by a READ UPDATE command
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS UNLOCK { DATASET(name) | FILE(name) } [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">wait convid</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              suspend task until accumulated data has been transmitted during an APPC conversation
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS WAIT CONVID(name) [STATE(data-area)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">wait event</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              delay the task until a previously issued POST has expired
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS WAIT EVENT ECADDR(pointer-value) END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">wait journalnum</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              synchronizes the current task with a previously written journal entry by suspending the task until the record has been successfully written to the journal file
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS WAIT JOURNALNUM(data-value) [REQID(data-value)] [STARTIO] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">write</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              write a record to a file
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS WRITE { DATASET(name) | FILE(name) } FROM(data-area) [LENGTH(data-area)] RIDFLD(data-area) [KEYLENGTH(data-area)] [SYSID(name)] [RBA | RRN] [MASSINSERT] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">write journalnum</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              write a record to the journal file
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS WRITE JOURNALNUM(data-value) JTYPEID(data-value) FROM(data-area) [LENGTH(data-area)] [PREFIX(data-value) [PFXLENG(data-value)]] [REQID(data-area)] [WAIT] [STARTIO] [NOSUSPEND] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">write operator</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              write a message to a system console
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS WRITE OPERATOR TEXT(data-value) [TEXTLENGTH(data-value)] [ROUTECODES(data-value) [NUMROUTES)data-value)]] [ACTION(data-value) | EVENTUAL | IMMEDIATE | CRITICAL | REPLY(data-area) MAXLENGTH(data-value) [REPLYLENGTH(data-area)] [TIMEOUT(data-value)]] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">writeq td</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              write a record to a transient data queue
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS WRITEQ TD QUEUE(name) FROM(data-area) [LENGTH(data-area)] [SYSID(name)] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">writeq ts</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              write a record to a temporary storage queue
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS WRITEQ TS QUEUE(name) FROM(data-area) [LENGTH(data-area)] [ITEM(data-value) [REWRITE]] [NUMITEMS(data-area)] [SYSID(name)] [MAIN | AUXILIARY] [NOSUSPEND] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;WIDTH:82.5pt;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid" valign="top" width="110">
+        <p style="TEXT-ALIGN:center" align="center">
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">xctl</span>
+          </font>
+        </p>
+      </td>
+      <td style="BORDER-RIGHT:windowtext 1pt solid;PADDING-RIGHT:1.5pt;BORDER-TOP:windowtext 1pt solid;PADDING-LEFT:1.5pt;PADDING-BOTTOM:1.5pt;BORDER-LEFT:windowtext 1pt solid;PADDING-TOP:1.5pt;BORDER-BOTTOM:windowtext 1pt solid">
+        <p>
+          <font face="Verdana" color="#333333" size="1">
+            <span style="FONT-SIZE:9pt;COLOR:#333333;FONT-FAMILY:Verdana">
+              terminate the current program and execute the one specified
+              <br />
+              <b>
+                <span style="FONT-WEIGHT:bold">EXEC CICS XCTL PROGRAM(name) [COMMAREA(data-area) [LENGTH(data-value)]] [INPUTMSG(data-area) [INPUTMSGLEN(data-value)]] END-EXEC.</span>
+              </b>
+            </span>
+          </font>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
