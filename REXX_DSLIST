@@ -1,0 +1,31 @@
+DSLIST through REXX
+ 
+Note that in following REXX if you want the list to be displayed instead of writing to dataset VNDJ29.LIST.DATASETS then just change the LMDLIST option as follows – 
+"LMDLIST LISTID("LSTID") OPTION(LIST) DATASET(DSVAR) STATS(YES)"
+Following REXX writes the output into USERID.LIST.DATASETS file.
+***************************** Top of Data ******************************
+/*REXX*/                                                               
+/* AUTHOR - YOGESH (VNDJ29)                         OCTOBER 2007      */
+/* THIS REXX ROUTINE USES LMDLIST FUNCTION (ISPF) TO CREATE A LIST    */
+/* OF DATASETS (SIMILAR TO 3.4 LIST) WITH THE HELP OF JUST HIGH LEVEL */
+/* QUALIFIER. THE WILDCARD '*' CAN BE USED.                           */
+/* NOTE THAT THE COUNTER IS JUST FOR THE PURPOSE OF BREAKING THE LOOP */
+/*--------------------------------------------------------------------*/
+/* THE DATASET LIST WILL BE WRITTEN TO VNDJ29.LIST.DATASETS           */
+/*--------------------------------------------------------------------*/
+ADDRESS ISPEXEC                                                        
+DSNLEV = 'PA00.CP000000.CTAA*'                                         
+DONE = 'NO'                                                            
+COUNT = 0                                                              
+"LMDINIT LISTID("LSTID") LEVEL("DSNLEV")"                              
+DO WHILE DONE = 'NO'                                                   
+    "LMDLIST LISTID("LSTID") OPTION(SAVE) GROUP(LIST) STATS(NO)"       
+    COUNT = COUNT + 1                                                  
+    IF COUNT >= 1 THEN                                                 
+       DONE = 'YES'                                                    
+    ELSE NOP                                                           
+END                                                                    
+"LMDLIST LISTID("LSTID") OPTION(FREE)"                                 
+/*REXX*/                                                                
+**************************** Bottom of Data ****************************
+Back To Index Page
