@@ -1,0 +1,23 @@
+Compressing Libraries (Prod, QA, Dev etc.)
+ 
+****** ***************************** Top of Data ******************************
+000001 //VNDJ29A   JOB (DIELD),'COMPRESS ISB1 LIBS',                          
+000002 //    MSGCLASS=T,CLASS=S,NOTIFY=&SYSUID                                
+000003 //**************************************************************       
+000004 //*THIS JOB WILL COMPRESS ALL THE BASELINE AND PRODUCTION      *       
+000005 //*LIBRARIES ASSOCIATED WITH CM APP ISB1.                      *       
+000006 //**************************************************************       
+000007 //STEP010  EXEC PGM=IEBCOPY                                            
+000008 //IN1      DD   DISP=SHR,DSN=PR00.CP000000.PISB.SRC                    
+000009 //OUT1     DD   DISP=SHR,DSN=PR00.CP000000.PISB.SRC                    
+000010 //SYSPRINT DD   SYSOUT=*                                               
+000011 //SYSIN   DD *                                                         
+000012    COPY INDD=((IN1,R)),OUTDD=OUT1                                      
+000013 //STEP011  EXEC PGM=IEBCOPY                                            
+000014 //IN1      DD   DISP=SHR,DSN=PRCM.CP000000.PISB.SRC.DELTA              
+000015 //OUT1     DD   DISP=SHR,DSN=PRCM.CP000000.PISB.SRC.DELTA              
+000016 //SYSPRINT DD   SYSOUT=*                                               
+000017 //SYSIN   DD *                                                         
+000018    COPY INDD=((IN1,R)),OUTDD=OUT1                                      
+****** **************************** Bottom of Data ****************************
+Back To Index Page
