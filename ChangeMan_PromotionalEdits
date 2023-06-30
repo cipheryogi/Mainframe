@@ -1,0 +1,26 @@
+ChangeMan Promotional Edits (Productivity Tool)
+ 
+ChangeMan Promotional Edits – Editing Environmental Components
+ 
+All the environmental components like JCL, PROC, CTC, DMS, BIND cards are to be coded strictly in PRODUCTION standards. ChangeMan can be used to edit these environmental components in order to perform testing in various environments such as DEV, QA, SIT, UAT etc.
+FILE-AID can be used to edit the components when promoted to Development, QA etc. environments. E.g. The production job is P4BX5550 with job card - //P4BX5550  JOB (P0BXX,PROD),'P0BX555'. When this job is promote to Development environment the Jobname is edited to D4BX5550 and job card becomes - //D4BX5550  JOB (D0BXX,DEV),'D0BX555'. Similarly when promoted to QA environment the parameters changes to QA standards viz. //Q4BX5550  JOB (Q0BXX,QA),'D0BX555'. Note that the ChangeMan promotional edit changes all required parameters including the libraries. This enables the users to test the same code in different environments without having to edit again and again. Another advantage is – the code always remains in PRODUCTION standards in the ChangeMan package.
+ 
+Add following code to your ChangeMan promotion skeleton –
+ 
+)CM APP1 PRM LVL 1
+)SEL &PRMBND EQ PROMLVL1
+//COPY     EXEC PGM=FILEAID,
+//         COND=(4,LT)
+//SYSPRINT DD SYSOUT=*
+//SYSLIST  DD SYSOUT=*
+//SYSTOTAL DD SYSOUT=*
+//DD01      DD DISP=(OLD,PASS),
+//          DSN=&PROMDS(&CMPNAME)
+//DD01O    DD SYSOUT=*
+//SYSIN DD *
+$$DD01 UPDATE EDITALL=(1,0,C"PCA01",C"RCA01"),
+              EDITALL=(1,0,C"DSNPENV",C"DB2TESTS"),
+              EDITALL=(1,0,C"(PRDDDB)",C"(TSTSSYDB)")
+)ENDSEL &PRMBND EQ PROMLVL1
+ 
+P.S. Sometimes this is called as productivity tool.
