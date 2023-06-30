@@ -1,0 +1,22 @@
+Group MOVE/ MOVE CORRESPONDING in COBOL
+ 
+Assigning values to group data items (MOVE)
+Use the MOVE statement to assign values to group data items.
+You can move a national group item (a data item that is described with the GROUP-USAGE NATIONAL clause) to another national group item. The compiler processes the move as though each national group item were an elementary item of category national, that is, as if each item were described as PIC N(m), where m is the length of that item in national character positions.
+You can move an alphanumeric group item to an alphanumeric group item or to a national group item. You can also move a national group item to an alphanumeric group item. The compiler performs such moves as group moves, that is, without consideration of the individual elementary items in the sending or receiving group, and without conversion of the sending data item. Be sure that the subordinate data descriptions in the sending and receiving group items are compatible. The moves occur even if a destructive overlap could occur at run time.
+You can code the CORRESPONDING phrase in a MOVE statement to move subordinate elementary items from one group item to the identically named corresponding subordinate elementary items in another group item:
+01  Group-X.
+    02 T-Code    Pic X    Value "A".
+    02 Month     Pic 99   Value 04.
+    02 State     Pic XX   Value "CA".
+    02 Filler    PIC X.
+01  Group-N      Group-Usage National.
+    02 State     Pic NN.
+    02 Month     Pic 99.
+    02 Filler    Pic N.
+    02 Total     Pic 999.
+. . .
+    MOVE CORR Group-X TO Group-N
+In the example above, State and Month within Group-N receive the values in national representation of State and Month, respectively, from Group-X. The other data items in Group-N are unchanged. (Filler items in a receiving group item are unchanged by a MOVE CORRESPONDING statement.)
+In a MOVE CORRESPONDING statement, sending and receiving group items are treated as group items, not as elementary data items; group semantics apply. That is, the elementary data items within each group are recognized, and the results are the same as if each pair of corresponding data items were referenced in a separate MOVE statement. Data conversions are performed according to the rules for the MOVE statement as specified in the related reference below. For details about which types of elementary data items correspond, see the related reference about the CORRESPONDING phrase.
+ 
