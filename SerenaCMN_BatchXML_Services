@@ -1,0 +1,175 @@
+Following is an example of how to use Serena-ChangeMan XML services (In back) to create ChangeMan package. Note that this is meant ONLY for ChangeMan administrators i.e. people having administrative access authority in Serena-Changeman ZMF software. Following XML script & JCL has been tested on ChangeMan version 5.6.0
+
+ 
+
+The ChangeMan XML batch program is SERXMLBC. This can be used to do various functions change management. In fact I believe that lot of administration work can be automated using XML services.
+
+ 
+
+In order to start using SERXMLBC you need to point the STEPLIB to correct load & SER#PARM to TCPIP libraries. Following is the sample JCL that uses SERXMLBC.
+
+ 
+
+//SERXMLX   JOB (xxxxx),'SERXMLBC',
+
+//    MSGCLASS=T,CLASS=S,NOTIFY=&SYSUID
+
+//**********************************************************************
+
+//STEPXML EXEC PGM=SERXMLBC
+
+//*
+
+//STEPLIB  DD DISP=SHR,DSN=SYS3.CHGMAN.xxxx.V560.LINKLIBC
+
+//         DD DISP=SHR,DSN=SYS3.CHGMAN.xxxx.V560.LINKLIB
+
+//         DD DISP=SHR,DSN=SYS3.CHGMAN.xxxx.V560.SERCOM.LINKLIBC
+
+//         DD DISP=SHR,DSN=SYS3.CHGMAN.xxxx.V560.SERCOM.LINKLIB
+
+//SER#PARM DD DISP=SHR,DSN=SYS4.CHGMAN.XXXX.TCPIPORT
+
+//SERRPLY  DD SYSOUT=*,
+
+//            DCB=(RECFM=VB,LRECL=4080,BLKSIZE=4084)
+
+//SYSPRINT DD SYSOUT=*
+
+//SERPRINT DD SYSOUT=*
+
+//SYSUDUMP DD SYSOUT=*
+
+//XMLIN    DD DISP=SHR,DSN=SERXML.XMLIN(PKGCREAT)
+
+//XMLOUT   DD DISP=SHR,DSN=SERXML.XMLOUT
+
+//*
+
+ 
+
+Click here (XML Script) to view the XML script for creating ChangeMan packages.
+
+ 
+
+The output of the XML is written to SERXML.XMLOUT dataset. It contains the error message if the request is unsuccessful. When the request is successfully completed, it gives following message –
+
+ 
+
+00571<?xml version="1.0"?>   <service name="PACKAGE"> <scope name="SERVICE"> <message name="CREATE"> <result>    <package>XXX1000006</package> <applName>ITS1</applName> <packageId>000006</packageId> <packageLevel>1</packageLevel> <packageType>1</packageType> <packageStatus>6</packageStatus> <installDate>20071206</installDate> </result>   <response>  <statusMessage>CMN2100I - XXX1000006 change package has been created.</statusMessage>    <statusReturnCode>00</statusReturnCode> <statusReasonCode>2100</statusReasonCode> </response> </message>  </scope>    </service>
+
+ 
+
+Basics –
+
+-------------------------- QUERY: CONTROL INFORMATION -------------------------
+
+COMMAND ===>                                                                  
+
+                                                                              
+
+      PACKAGE ID: XXX1000005      STATUS: DEV      INSTALL DATE: 20071206     
+
+COMPLEX/SUPER ID:                 STATUS:                                     
+
+                                                                              
+
+PACKAGE TITLE                                                                  
+
+===> TEST PACKAGE USING SERXMLBC                                              
+
+                                                                              
+
+APPLICATION               ===> XXX1                                            
+
+REQUESTER'S NAME          ===> YOGESH SHINDE                                  
+
+REQUESTER'S PHONE         ===> 800-508-4080                                   
+
+GSD CHANGE TICKET         ===> TEST         (Cxxxxxxx)                         
+
+RLSE OR WORK CODE         ===> XXXX                                           
+
+PACKAGE LEVEL             ===> 1          (1-Simple, 2-Complex,               
+
+                                           3-Super,  4-Participating)         
+
+PACKAGE TYPE              ===> PLANNED    (Planned or Unplanned)              
+
+PACKAGE TIME SPAN         ===> PERM       (Permanent or Temporary)            
+
+UNPLANNED REASON CODE     ===>                                                
+
+TEMPORARY CHANGE DURATION ===>            (In days)                           
+
+     
+
+The Change control value should go in <workChangeRequest>TEST</workChangeRequest> tag
+
+ 
+
+The RLSE value should go in <requestorDept>HTSA</requestorDept>
+
+------------------------- QUERY: PACKAGE DESCRIPTION --------- Row 1 to 1 of 1
+
+ COMMAND ===>                                                  SCROLL ===> CSR 
+
+                                                                               
+
+ Press END command to continue                                                  
+
+                                                                               
+
+       PACKAGE ID: XXX1000005      STATUS: DEV      INSTALL DATE: 20071206     
+
+                                                                                
+
+      (minimum one line, maximum 46 lines)                                     
+
+ '''' TESTING XML SERVICES____________________________________________________ 
+
+              
+
+ 
+
+The package description should go in <packageDesc>TESTING XML SERVICES</packageDesc>
+
+ 
+
+---------------------- QUERY: INSTALLATION INSTRUCTIONS ------ Row 1 to 1 of 1
+
+COMMAND ===>                                                  SCROLL ===> CSR 
+
+                                                                              
+
+Press END command to continue.                                                
+
+                                                                              
+
+      PACKAGE ID: XXX1000005      STATUS: DEV      INSTALL DATE: 20071206     
+
+                                                                               
+
+CONTINGENCY ===> 2   1-Hold production and contact analyst                    
+
+                     2-Backout change, continue production                    
+
+                     3-Other ===>                                              
+
+                                                                              
+
+SCHEDULER   ===> CMN      (CMN, Manual or Other)                              
+
+                                                                               
+
+     (minimum one line, maximum 46 lines)                                     
+
+'''' INSTALL TO XXXX_________________________________________________________ 
+
+******************************* Bottom of data ********************************
+
+Important tag is <packageImplInst>INSTALL TO Company</packageImplInst>. The install information should go here.
+
+ 
+
+Not that all these tags are necessary when CREATEMETHOD is 2 (Meaning long method) <createMethod>2</createMethod>.  
