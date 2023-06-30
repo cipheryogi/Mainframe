@@ -1,0 +1,21 @@
+Lot of novice programmers (sometimes experienced guys) working on databases such as DB2 ask "What's checkpoint restart?" when they are almost through writing their database update program. I am just attempting to highlight the importance of having CheckPoint Restart logic right from the design phase of any application that involves large number of updates to the database.
+
+So what's checkpointing?
+
+Let me try to explain this simple concept with an example - Suppose you have a transaction processing system (say credit cards transactions) which updates the production database every night by running batch jobs. These batch jobs update the production data with each day's transctions. You don't have the reason for worry if your batch job system is never going to fail. Unfortunately this isn't the case (at least with software applications :)). Suppose one fine night your batch fails when it's half-way through updating the production database. Say you had 50000 transactions during the day time and out of which the nightly batch has updated 40000 into production database. It's critical to the business that the nightly batch is over in minimum time. However if your application take 6 hours to process 50000 transactions, will you re-run the whole batch again when the application has failed on 40001th record? And if Murphy hits you again, you'll get another abend in the batch and might not finish the nightly batch in permissible timeframe! Which can obviously be disastrous as system will be down resulting in business loss.
+
+Simply put - why will you repeat the entire processing for 50000 transaction when the system has already processed 40000 transactions and just 10000 are remaining? Makes sense?
+
+To avoid repeating the entire process we have something called "CheckPoint Restart". It'a very simple yet extremely useful and effective logic which I believe should be incorporated in every software application that deals with database updates on large scale. The logic is as follows:
+
+Create a Checkpoint table (or indexed file) where the keys of all the other tables or files can be stored along with other necessary information.
+
+Depending on the processing speed, programming logic and application efficiency determine the COMMIT or Checkpoint frequency. E.g. If the application can process 1 record a second and the average updates are around 50000 records then the COMMIT frequency can be 1800. So after writing every 1800 records to the main database, the last processed record is written to the Checkpoint restart table or file. Hence at any given point of time, there will be just one record in the Checkpoint restart table. And this will the last processed record.
+
+So if the batch abends at 40001th record i.e. after processing 40000 records successfully then we can refer to the last updated record in the Checkpoint restart table. We'll get the keys of all the other tables in it. Note that we'll need to repeat the processing for maximum of 1800 records only instead of all previously processed 40000. We COMMIT the database after every 1800 records (for example) and therefore if the abend occurs before next COMMIT we have to process whatever number of UN-commited records again. It would be anywhere from 0-1800 (meaning 0 to COMMIT Frequency).
+
+The database update program should have the logic to check whether it's a fresh run or a RESTART. This check should be there right at the beginning of the program. On Mainframe Platform the Restart parameter can be passed through the JCL. If it's a RESTART the program should branch to restart logic which should basically read the Checkpoint Restart table and obtain the keys for rest of the tables. Then position all the tables (using these keys) at the last processed record.
+
+Finally the return the control to the regular logic of the program and continue the processing.
+
+Attached herewith is a COBOL-DB2-VSAM program which has this logic. Note that when you have input files instead of DB2 tables then you'll need to use LOOPs to position these files to the last processed records. Refer to this program ==> CHECKPOINTRESTARTPROGRAM.DOC
