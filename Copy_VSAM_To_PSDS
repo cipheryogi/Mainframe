@@ -1,0 +1,9 @@
+Copying VSAM dataset into PS dataset
+ 
+Copying VSAM dataset into PS dataset
+Use the regular file copy option in FILE-AID i.e. 3.3 on the indexed file
+In FILE-AID panel - write the output dataset name with DISPOSITION=OLD and select ‘B’ (BATCH) mode and hit enter
+You will get a message - ER852-OUTPUT DATASET NOT AVAILABLE, TAPE ASSUMED. Ignore this message and type JCL on the command line. Hit enter
+Now you have your JCL ready. Just remove the output dataset’s DISP, UNIT and LABEL parameters. Replace those with the (NEW,CATLG,DELETE) and required SPACE, DCB parameters.
+This would be useful if IDCAMS REPRO fails to copy the records correctly from indexed file into flat file. Sample job - VNDJ29.JCL(FILECOP)
+Back To Index Page
