@@ -1,0 +1,104 @@
+XPEDITER Commands
+ 
+XPEDITER Commands
+ 
+Some commonly used XPEDITER/CICS primary commands are:
+ 
+AFTER     
+Sets conditional or unconditional breakpoints after the execution of a
+statement or instruction.                                            
+ 
+BEFORE    
+Sets conditional or unconditional breakpoints before the execution of a
+statement or instruction.                                             
+ 
+CALC      
+Performs hexadecimal/decimal calculations and displays the results online.
+ 
+COUNT     
+Sets execution counts and gathers test coverage statistics.
+ 
+DELETE    
+Removes either a specific object or a dataset record, depending on the
+screen you access.                                                   
+ 
+EXCLUDE   
+Excludes specified lines from display. You see only the lines of code in which you are interested. When you step through a program, lines are redisplayed as they are executed so you can see the logic flow of the program. Symbolic label support is provided so that you can exclude a range of lines.                                                         
+ 
+EXIT (PF4)
+Transfers to the Exit Session screen.
+ 
+FIND      
+Positions the cursor on a specified string. Can be used in conjunction with the EXCLUDE command.                                            
+ 
+GO (PF12) 
+Executes program logic by the specified parameter. If no parameters are specified, resumes execution from the current location. GO 5 1 will execute five statements, pausing one second between each statement. GO UNTIL WA-HOURS executes until the value of WA-HOURS changes.          
+ 
+GOTO        
+Used to reposition execution at another point in the program. Repositions the current execution pointer to the specified statement, offset, or address.                                                                 
+ 
+GPREGS      
+Sets footing options to the general purpose registers.
+ 
+HELP (PF1)  
+Displays hypertext online help. HELP COMMANDS displays a list of the available commands. HELP NEWS gives information about the current release. Entering HELP on a particular screen will display information about that screen.                                                                   
+ 
+KEEP        
+Selects the contents of a data item to be viewed in the scrollable and sizeable keep window. To change displayed data, overtype it with a new value.                                                                
+ 
+LOCATE * (PF6)
+Transfers from any XPEDITER screen directly to the Source Listing screen (2.L) or Assembler Break/Abend screen (2.20).                           
+ 
+REPEAT        
+Re-executes the last primary command.
+ 
+SET           
+Changes debugging parameters:                                              
+      KEEPS: Changes the size of the keep window.                             
+            JUSTIFICATION: Clips the current source listing so that extraneous data 
+      in the source is removed from the display. SET JUSTIFICATION ON clips   
+      the lines and suppresses all lines before the first and after the last  
+      source line in the display.                                              
+      SOURCE: Provides either a source or break/abend focus.                  
+      FOOT: Changes the data displayed in the FOOTING.                        
+      DATA: Displays hex result of last CALC command.                        
+      KEYS: Displays the PF key settings.                                   
+            REGS: Displays current program register contents, assembler instruction, and PSW
+      for break/abend.                     
+      SOURCE: Displays five lines of source.                     
+      STATUS: Displays status of current task.                  
+ 
+SHOW          
+Modifies the format of selected screens to display data in different forms.                                                             
+ 
+SKIP     
+Temporarily bypasses the execution of a statement.
+    
+USING         
+Maps data according to a record format from a COBOL program in the file utility.                                                              
+ 
+VERIFY        
+Displays and, if desired, modifies Assembler object code.
+WHEN          
+Sets conditions for pausing program execution.    
+ 
+ 
+XPND
+Automatically terminates the XPEDITER/CICS session on your terminal. To
+use this transaction, enter:                                          
++---------------------------------------------------------------------------
+¦     >>--XPND--><                                                         
++---------------------------------------------------------------------------
+ 
+NEWC
+Loads a new version of the program, restores breakpoints except those set  
+by statement number or offset, and updates module attributes. To use the   
+newcopy transaction, enter the following:                                  
++---------------------------------------------------------------------------
+¦     >>--NEWC--program-name--><                                           
++---------------------------------------------------------------------------
+ 
+DMAP
+Displays a BMS map. To use this transaction, enter:
+ 
+Back to index page
