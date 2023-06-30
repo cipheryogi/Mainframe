@@ -1,0 +1,51 @@
+XPEDITER: Merging User Profiles
+ 
+***********************************************************************        
+  *** XPEDITOR ---> merging other user's profile                               
+                                                                               
+      enter option 5 on the primary menu in XPEDITOR                           
+         You will reach the utility menu where U enter option 7                
+         option 7 says - 'Merge profiles from alternate users' .               
+                                                                               
+      Now U will have to enter the DSNAME in SELECT ALTERNATE PROFILES         
+      screen. The DSNAME would be as follows:                                  
+               'userid.tsolib.ispfprof'.                                       
+      You would reach a screen where U get to have a look at all the           
+      profiles of this USER . You may select any (or all) of the               
+      profile(s) .                                                             
+                                                                               
+      
+***********************************************************************        
+  *** XPEDITOR ---> Use of test scripts                                        
+                                                                               
+    Objective - In order to execute some of the actions                        
+                like forcing data to certain program variables,                
+                setting up breakpoints or interrupts. These actions            
+                need not be performed everytime U go into XPEDITOR.            
+                You take the help of a test script to perform these            
+                frequent actions.                                              
+                                                                               
+    First of all you will have to include your test script library             
+    in the INCLUDE option of the SETUP MENU . Now you will have to             
+    create a test script member that would reside in this test script          
+    library. The easiest way to go about creating this script is to            
+    initially run the program in XPEDITOR and execute it to test the           
+    logic of the program. Just when you quit the session after the             
+    first cycle of execution you would reach a screen which informs            
+    you about the creation of a log and a script. You can get into             
+    the SCRIPT and edit it so as to satisfy your requirements                  
+    and save it in your TEST SCRIPT library. The next time you run             
+    the program in XPEDITOR all you have to do is to type                      
+    INCLUDE MEMBERNAME on the command line at the time of execution.           
+       
+    in the INCLUDE option of the SETUP MENU . Now you will have to             
+    create a test script member that would reside in this test script          
+    library. The easiest way to go about creating this script is to            
+    initially run the program in XPEDITOR and execute it to test the           
+    logic of the program. Just when you quit the session after the             
+    first cycle of execution you would reach a screen which informs            
+    you about the creation of a log and a script. You can get into             
+    the SCRIPT and edit it so as to satisfy your requirements                  
+    and save it in your TEST SCRIPT library. The next time you run             
+    the program in XPEDITOR all you have to do is to type                      
+    INCLUDE MEMBERNAME on the command line at the time of execution.
