@@ -1,0 +1,82 @@
+***************************** Top of Data ******************************
+
+ /* REXX MAIN START                                        	*/      
+
+ /* THIS REXX GENERATES A REPORT OF DATASET ATTRIBUTES EXACTLY */      
+
+ /* SIMILAR TO "SAVE LIST" COMMAND (ISPF)                  	*/      
+
+ /* THE REPORT IS GENERATED IN DATASET                     	*/      
+
+ /* <USERID.GROUPNAME.MEMBERS>                             	*/      
+
+ /* E.G. GROUPNAME IS "YOGESH" BELOW                       	*/      
+
+ /**************************************************************/      
+
+SAY 'PLEASE SPECIFY THE PDS:'                                          
+
+PULL INPDSN                                                            
+
+WSMEM = ' '                                                            
+
+ADDRESS ISPEXEC                                                        
+
+"LMINIT DATAID(INID) DATASET('"INPDSN"') ENQ(SHRW)"                    
+
+"LMOPEN DATAID("INID") OPTION(INPUT)"                                  
+
+"LMMLIST DATAID("INID") MEMBER(WSMEM) OPTION(LIST)"                    
+
+"LMMLIST DATAID("INID") MEMBER(WSMEM) OPTION(FREE)"                    
+
+"LMMLIST DATAID("INID") MEMBER(WSMEM) OPTION(SAVE) GROUP(YOGESH)"      
+
+"LMCLOSE DATAID("INID")"                                               
+
+"LMFREE DATAID("INID")"                                                
+
+ RETURN                                                                
+
+**************************** Bottom of Data ****************************
+
+ 
+
+SAMPLE OUTPUT REPORT:
+
+¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢¢
+
+BROWSE	VNDJ29.YOGESH.MEMBERS                  	Line 00000000 Col 001 080
+
+Command ===>                                              	Scroll ===> CSR 
+
+******************************** Top of Data **********************************
+
+  BACKUP            	01.00 07/10/04 07/10/04 05:28	65	65 	0 VNDJ29
+
+  CMN990            	01.00 07/11/21 07/11/21 23:42  1124  1124 	0 VNDJ29
+
+  DSLIST            	01.29 07/10/22 07/10/25 00:12	23	22 	4 VNDJ29
+
+  DSREP             	01.01 07/10/08 07/10/08 23:52	87	87 	3 VNDJ29
+
+  DSREPORT          	01.63 07/09/26 07/10/24 23:18	87	37	87 VNDJ29
+
+  JANET             	01.00 08/03/19 08/03/19 05:20	66	66 	0 VNDJ29
+
+  LMDINIT           	01.14 07/10/22 07/10/22 03:35	14 	7	10 VNDJ29
+
+  SAVELST           	01.99 08/03/04 08/03/26 01:46	19  1540 	0 VNDJ29
+
+  SPACERPT          	01.04 07/10/21 07/10/21 23:43	79	87 	2 VNDJ29
+
+  STRIP             	01.14 07/10/04 07/10/04 04:04	56	58	12 VNDJ29
+
+  SUBSTR            	01.33 07/10/04 07/10/04 05:58	58	58 	0 VNDJ29
+
+  TEST              	01.00 07/10/03 07/10/03 23:24	65	65 	0 VNDJ29
+
+  XMLSERV           	01.14 07/12/03 07/12/04 21:20	67	60	67 VNDJ29
+
+******************************* Bottom of Data ********************************
+
