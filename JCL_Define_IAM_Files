@@ -1,0 +1,25 @@
+How to Define IAM files
+ 
+ BROWSE    DFC2.VNDJ29.GLOB.FFB.CTC($IAM) - 01.00     Line 00000000 Col 001 080
+ Command ===>                                                  Scroll ===> CSR
+********************************* Top of Data **********************************
+ DEL DFC2.CP000000.QA.VSO.PDFILE   CL PRG                                      
+ DEF CL(NAME(DFC2.CP000000.QA.VSO.PDFILE)-                              00126044
+          OWNER($IAM)-                                                  00127000
+          SPEED -                                                       00127000
+          IXD-                                                          00127000
+          CYL(750 450)-                                                 00128000
+          SHR(2)-                                                       00129000
+          RECORDSIZE(3900,3900)  -                                             
+          FREESPACE(15 10)-                                             00130000
+          REUSE -                                                       00131000
+          VOLUMES(* *)) -                                               00132044
+        DATA(NAME(DFC2.CP000000.QA.VSO.PDFILE.DATA)-                    00133044
+          CISZ(2048)-                                                   00134000
+          KEYS(7 15) -                                                  00135000
+          BUFFERSPACE(68608)) -                                                
+       INDEX(NAME(DFC2.CP000000.QA.VSO.PDFILE.INDEX)-                   00136044
+          CISZ(3584))                                                   00134000
+******************************** Bottom of Data ********************************
+Note that it’s almost similar to creating a VSAM KSDS file. The only different is keyword – OWNER($IAM).
+Back to index page
