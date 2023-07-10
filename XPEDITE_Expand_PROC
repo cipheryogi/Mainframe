@@ -4,9 +4,8 @@ Here’s how you can quickly expand the PROC inside your JOB –
 Open XPEDITER and go to Option 2 TSO
 In the “File List/JCL Member ===>” give the path of the JCL which you want to expand. E.g. 'P4M0.CP000000.P4M2.JCL(P4MA1201)'
 Under the PROGRAM heading give the program which is executed in the particular PROC mentioned. (Actually any program name would do!)
-Hite enter and you will get a message “Allocating User Datasets”. This might take a while depending on the number of files in the PROC.
+Hit enter and you will get a message “Allocating User Datasets”. This might take a while depending on the number of files in the PROC.
 Once done you’ll see a screen where JCL is expanded and few command option at the top.
 Type EDIT of the command line and hit enter
 Here you have your JOB expanded. All you need to do is to delete the PROC statement (If at all it’s still present).
 Use this for XPEDITING batch programs or for your test purpose.
-Back To Index Page
